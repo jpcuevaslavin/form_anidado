@@ -1,16 +1,10 @@
-
-
-
-<% if notice.present? %>
-  <div class="alert alert-success" role="alert">
-    <%= notice %>
-  </div>
-<% end %>
-
-
 <h3 class="text-center">
   <%= @post.title %>
 </h3>
+<hr>
+<p class="text-center">
+  Author: <%= @post.user.name %>
+</p>
 <hr>
 <p class="text-center">
   <%= @post.content %>
@@ -34,13 +28,11 @@
   <% @comments.each do |comment| %>
     <li>
       <%= comment.content %>
-
-      <%#= link_to "<span class='badge badge-danger'>x</span>".html_safe, comment, method: :delete %>
-
+      - by: <%= comment.user.name %>
       <%= link_to comment, method: :delete do %>
         <span class='badge badge-danger'>x</span>
       <% end %>
-    
+
     </li>
   <% end %>
 </ol>

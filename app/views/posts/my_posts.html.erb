@@ -1,0 +1,13 @@
+<h1>
+  Estos son MIS POSTS!
+</h1>
+<hr>
+
+<ol>
+  <% @posts.each do |post| %>
+    <li>
+      <%= link_to post.title, post %>
+      <%= post.comments.count %>
+    </li>
+  <% end %>
+</ol>
